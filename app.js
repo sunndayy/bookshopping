@@ -65,7 +65,7 @@ app.set('views/cart', './views/cart');
 app.set('views/admin', './views/admin');
 
 app.use(express.static('public'));
-app.use('/', homeController);
+app.use('https://bookshopping.herokuapp.com/', homeController);
 app.use('/products', productController);
 app.use('/users', userController);
 app.use('/cart', cartController);
