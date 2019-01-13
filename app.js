@@ -70,4 +70,4 @@ app.use('/users', userController);
 app.use('/cart', cartController);
 app.use('/admin', adminController);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
