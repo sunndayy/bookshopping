@@ -4,10 +4,11 @@ global.session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 
 global.sessionStore = new MySQLStore({
-  host: 'localhost',
-  user: 'root',
-  password: '12345',
-  database: 'mydb',
+  host: 'remotemysql.com',
+  user: 'fROIiKFSmc',
+  password: 'QdTXNSaDEB',
+  database: 'fROIiKFSmc',
+  port: '3306',
   createDatabaseTable: true,
   schema: {
     tableName: 'sessions',

@@ -3,10 +3,11 @@ var mysql = require('mysql');
 exports.load = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "12345",
-            database: "mydb"
+            host: "remotemysql.com",
+            user: "fROIiKFSmc",
+            password: "QdTXNSaDEB",
+            database: "fROIiKFSmc",
+            port: '3306'
         });
 
         cn.connect();
@@ -26,10 +27,11 @@ exports.load = sql => {
 exports.save = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "12345",
-            database: "mydb"
+            host: "remotemysql.com",
+            user: "fROIiKFSmc",
+            password: "QdTXNSaDEB",
+            database: "fROIiKFSmc",
+            port: '3306'
         });
 
         cn.connect();
