@@ -7,21 +7,22 @@ head
   link(rel='stylesheet' type='text/css' href='/css/bootstrap.min.css')
   script(type='text/javascript' src='/js/jquery.min.js')
   script(type='text/javascript' src='/js/bootstrap.min.js')
+  script(type='text/javascript' src='/js/payform.js')
   link(rel='stylesheet' type='text/css' href='/css/login.css')
   link(rel='shortcut icon' type='image/x-icon' href='/images/ic_book.png')
 #wrap.container
   .row(style='margin-bottom: 20px;')
     .col-md-6.col-md-offset-3
       form.form(action='/cart' method='post' accept-charset='utf-8' role='form')
-        legend Th&ocirc;ng tin kh&aacute;ch h&agrave;ng
-        input.form-control.input-lg(type='text' name='name' value='' placeholder='Nhập Tên' required)
+        legend Thông tin thanh toán
+        input.form-control.input-lg(type='text' name='fullname' value='' placeholder='Nhập Họ Tên' required)
         input.form-control.input-lg(type='text' name='address' value='' placeholder='Nhập Địa Chỉ' required)
-        input.form-control.input-lg(type='number' name='telephone' value='' placeholder='Nhập Số Điện Thoại' required)
-        input.form-control.input-lg(type='email' name='email' value='' placeholder='Nhập Email' required)
-        select.form-control.input-lg(required)
-          option(value='') Ch&#x1ECD;n ph&#x1B0;&#x1A1;ng th&#x1EE9;c thanh to&aacute;n
-          option(value='Check') Check
-          option(value='Cash') Ti&#x1EC1;n m&#x1EB7;t
-          option(value='Credit Card') Th&#x1EBB; t&iacute;n d&#x1EE5;ng
-        button.btn.btn-lg.btn-primary.btn-block.signup-btn(type='submit')
+        input.form-control.input-lg(type='text' name='telephone' value='' placeholder='Nhập Số Điện Thoại' required)
+        input.form-control.input-lg(type='text' name='addressWallet' value='' placeholder='Nhập địa chỉ ví' required)
+        input.form-control.input-lg(type='password' name='privKey' value='' placeholder='Nhập khóa bí mật' required)
+        button.btn.btn-lg.btn-primary.btn-block.signup-btn(onclick='handlePayment()')
           | Thanh to&aacute;n
+  .row(style='margin-top: 15px;')
+    .col-md-12.control
+      div(style='border-top: 1px solid#888; padding-top:15px; font-size:85%; width: 50%; text-align: center; margin: 0 auto;')
+        | Chúng tôi sẽ lấy phí 1% để duy trì hệ thống thanh toán 

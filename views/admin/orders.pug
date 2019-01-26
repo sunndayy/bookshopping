@@ -2,11 +2,21 @@ each item in items
   .col-md-9.col-sm-9.col-xs-12(style='margin-top: 10px;')
     if (item.status == 'Chưa giao')
       li.list-group-item(style='background: #FF0000; color: #FFFFFF;')
+        | Mã đơn hàng: #{item.id}
+        br
         | User ID: #{item.user_id}
+        br
+        | Họ tên: #{item.fullname}
+        br
+        | Địa chỉ: #{item.address}
+        br
+        | Số điện thoại: #{item.phone}
+        br
+        | Ngày mua: #{item.date}
         br
         | Trạng thái: #{item.status}
         br
-        | Ngày mua: #{item.date}
+        | Trạng thái thanh toán: #{item.payStatus}
     if (item.status == 'Đang giao')
       li.list-group-item(style='background: #FFFF00; color: #000000;')
         | User ID: #{item.user_id}
@@ -14,6 +24,8 @@ each item in items
         | Trạng thái: #{item.status}
         br
         | Ngày mua: #{item.date}
+        br
+        | Trạng thái thanh toán: #{item.payStatus}
     if (item.status == 'Đã giao')
       li.list-group-item(style='background: #008000; color: #FFFFFF;')
         | User ID: #{item.user_id}
@@ -21,6 +33,8 @@ each item in items
         | Trạng thái: #{item.status}
         br
         | Ngày mua: #{item.date}
+        br
+        | Trạng thái thanh toán: #{item.payStatus}
   .col-md-3.col-sm-3.col-xs-12(style='margin-top: 10px;')
     if (!updateOrderID)
       a.btn.btn-default(href='/admin/updateOrder/' + item.id) Cập nhật trạng thái

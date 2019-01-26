@@ -160,29 +160,8 @@ router.get('/payForm', (req, res) => {
 });
 
 router.post('/cart', function(req, res) {
-  var p1 = cartRepo.createOrder(req.session.user.id);
-  Promise.all([p1]).then(([p1Rows]) => {
-    var p2 = cartRepo.getLastOrderId(req.session.user.id);
-    Promise.all([p2]).then(([p2Rows]) => {
-      for (i = 0; i < req.session.cart.length; i++) {
-        var p3 = cartRepo.insertOrderItem(p2Rows[0].id, req.session.cart[i].id, req.session.cart[i].quantity, req.session.cart[i].price * req.session.cart[i].quantity);
-        Promise.all([p3]).then(([p3Rows]) => {
-          console.log("Inserted!");
-        });
-      }
-      var p4 = cartRepo.getBookId(p2Rows[0].id);
-      Promise.all([p4]).then(([p4Rows]) => {
-        for (i = 0; i < p4Rows.length; i++) {
-          var p5 = cartRepo.updateQuantity(p4Rows[i].product_id, p4Rows[i].quantity);
-          Promise.all([p5]).then(([p5Rows]) => {
-            console.log("Updated!");
-          });
-        }
-      });
-      req.session.cart = [];
-      res.redirect('/');
-    });
-  });
+  req.session.cart = [];
+  res.redirect('/');
 });
 
 router.get('/viewHistory', (req, res) => {

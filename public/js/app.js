@@ -1,4 +1,18 @@
 $(document).ready(function() {
+  var ws = new WebSocket("ws://bookshopping.herokuapp.com");
+  ws.onopen = function(evt) {
+    console.log("Đã kết nối đến bookshopping");
+  };
+  ws.onmessage = function(evt) {
+    alert(evt.data);
+  };
+  ws.onerror = function(evt) {
+    console.log(evt);
+  };
+  ws.onclose = function(evt) {
+    console.log("Đã đóng kết nối đến bookshopping");
+  };
+
   $('.view_more').click(function(event) {
     event.preventDefault();
     $(this).addClass('hide');
