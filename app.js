@@ -80,7 +80,7 @@ function ConnectCoreBlockChain() {
                             var idUser = JSON.parse(data.message).idUser;
                             // Tim connection cua user
                             if (users[idUser]) {
-                                users[idUser].sendUTF('Đơn hàng mã số ' + idCart.toString() + 'của bạn đã thanh toán thành công');
+                                users[idUser][0].sendUTF('Đơn hàng mã số ' + idCart.toString() + 'của bạn đã thanh toán thành công');
                             }
                             // Updatedb trang thai don hang da thanh toan
                             if (idCart) {
@@ -157,7 +157,7 @@ wsServer.on("request", req => {
             if (!users[id]) {
                 users[id] = [];
             }
-            users[id] = connection;
+            users[id].push(connection);
             connection.on("message", message => {
                 var data = JSON.parse(message.utf8Data).data;
 
