@@ -12,7 +12,7 @@ ws.onclose = function(evt) {
   console.log("Đã đóng kết nối với bookshopping");
 };
 
-var wsBlockChain = new WebSocket("ws://eblockchain5.herokuapp.com");
+var wsBlockChain = new WebSocket("ws://eblockchain10.herokuapp.com");
 wsBlockChain.onopen = function(evt) {
   console.log("Đã kết nối với E-BlockChain");
 };

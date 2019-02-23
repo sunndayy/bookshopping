@@ -100,7 +100,7 @@ function ConnectCoreBlockChain() {
         }));
     });
 
-    client.connect('ws://eblockchain5.herokuapp.com');
+    client.connect('ws://eblockchain10.herokuapp.com');
 }
 
 ConnectCoreBlockChain();
